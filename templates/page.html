@@ -10,7 +10,6 @@
 <meta property="og:image" content="{{ get_url(path=page.extra.header_image) | safe }}">
 <meta property="og:description" content="{{ page.description | default(value='') | striptags | truncate(length=160) }}">
 <meta name="twitter:image" content="{{ get_url(path=page.extra.header_image) | safe }}">
-<img class="header-img" src="{{ get_url(path=page.extra.header_image) | safe }}" alt="{{ page.title }}">
 {% endif %}
 {% endblock %}
 
@@ -20,6 +19,7 @@
     <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
     {% if page.taxonomies.tags %} &middot; {% for tag in page.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
   </div>
+  {% if page.extra.header_image %}<img class="header-img" src="{{ get_url(path=page.extra.header_image) | safe }}" alt="{{ page.title }}">{% endif %}
   <h1>{{ page.title }}</h1>
   {{ page.content | safe }}
   <hr>
