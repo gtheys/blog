@@ -7,6 +7,9 @@ tags = ["essays", "ai-era"]
 
 [taxonomies]
 tags = ["essays", "ai-era"]
+
+[extra]
+header_image = "img/nobody-pays-for-code.jpg"
 +++
 
 A few weeks ago I watched an agent rebuild a closed-source SaaS tool as an open-source clone. Over a weekend. Not because anyone asked it to — someone on the internet complained about the pricing, an agent session spun up, and by Monday there was a working alternative with a README, CI, and a MIT license.

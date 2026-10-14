@@ -7,6 +7,9 @@ tags = ["essays", "maintenance"]
 
 [taxonomies]
 tags = ["essays", "maintenance"]
+
+[extra]
+header_image = "img/last-moat.jpg"
 +++
 
 Every abandoned project now gets ten eager clones within a week.

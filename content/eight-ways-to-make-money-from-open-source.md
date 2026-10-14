@@ -7,6 +7,9 @@ tags = ["playbook", "ai-era"]
 
 [taxonomies]
 tags = ["playbook", "ai-era"]
+
+[extra]
+header_image = "img/eight-ways.jpg"
 +++
 
 There are exactly eight ways people make money from open source. Some of them are about to get much harder. Some were never about the code to begin with — and those are the ones that will outlive the current shift.

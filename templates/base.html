@@ -7,6 +7,10 @@
   <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
   <link rel="stylesheet" href="{{ get_url(path='style.css') | safe }}">
   <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml') | safe }}">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
+  <meta property="og:title" content="{% block ogtitle %}{{ config.title }}{% endblock %}">
+  <meta name="twitter:card" content="summary_large_image">
   {% block head %}{% endblock %}
 </head>
 <body>
