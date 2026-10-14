@@ -1,0 +1,24 @@
+# Monetize OSS blog — https://blog.monetize-oss.com
+base_url = "https://blog.monetize-oss.com"
+title = "Monetize OSS"
+description = "How to make money from open source in the age of AI. Essays and maintainer interviews from monetize-oss.com."
+default_language = "en"
+
+compile_sass = true
+minify_html = true
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+taxonomies = [{ name = "tags", feed = true }]
+
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+extra_syntaxes = []
+smart_punctuation = true
+
+[extra]
+scorecards_url = "https://scorecards.monetize-oss.com/"
+main_site_url = "https://monetize-oss.com/"
+author = "Geert Theys"

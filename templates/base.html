@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css') | safe }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml') | safe }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="{{ config.base_url }}/"><strong>Monetize&nbsp;OSS</strong></a>
+      <div class="links">
+        <a href="{{ config.base_url }}/">Posts</a>
+        <a href="{{ config.extra.scorecards_url }}" target="_blank" rel="noopener">Scorecards</a>
+        <a href="{{ get_url(path='atom.xml') | safe }}">RSS</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <p>
+      <a href="{{ config.extra.main_site_url }}" target="_blank" rel="noopener">monetize-oss.com</a>
+      &middot;
+      <a href="{{ config.extra.scorecards_url }}" target="_blank" rel="noopener">scorecards.monetize-oss.com</a>
+      &middot;
+      written by {{ config.extra.author }}
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <h1>Monetize OSS</h1>
+  <p class="tagline">How to make money from open source in the age of AI. Two posts a week — essays and maintainer interviews.</p>
+</section>
+
+<section class="posts">
+  {% for post in paginator.pages %}
+  <article class="post-card">
+    <div class="meta">
+      <time datetime="{{ post.date }}">{{ post.date | date(format="%b %d, %Y") }}</time>
+      {% if post.taxonomies.tags %} &middot; {% for tag in post.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+    </div>
+    <h2><a href="{{ post.permalink | safe }}">{{ post.title }}</a></h2>
+    <p class="summary">{{ post.summary | safe }}</p>
+    <a class="more" href="{{ post.permalink | safe }}">Read &rarr;</a>
+  </article>
+  {% endfor %}
+</section>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pager">
+  {% if paginator.previous %}<a href="{{ paginator.previous | safe }}">&larr; Newer</a>{% endif %}
+  <span class="meta">Page {{ paginator.current_index }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next %}<a class="right" href="{{ paginator.next | safe }}">Older &rarr;</a>{% endif %}
+</nav>
+{% endif %}
+{% endblock %}

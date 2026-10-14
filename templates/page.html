@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock %}
+{% block description %}{{ page.description | default(value=config.description) | striptags | truncate(length=160) }}{% endblock %}
+
+{% block content %}
+<article class="post">
+  <div class="meta">
+    <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+    {% if page.taxonomies.tags %} &middot; {% for tag in page.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+  </div>
+  <h1>{{ page.title }}</h1>
+  {{ page.content | safe }}
+  <hr>
+  <p class="cta">Before you copy any playbook, check how the projects in this cohort actually score on maintenance health: <a href="{{ config.extra.scorecards_url }}" target="_blank" rel="noopener">open source scorecards</a>.</p>
+</article>
+<nav class="pager">
+  {% if page.lower %}<a href="{{ page.lower.permalink | safe }}">&larr; {{ page.lower.title | truncate(length=40) }}</a>{% endif %}
+  {% if page.higher %}<a class="right" href="{{ page.higher.permalink | safe }}">{{ page.higher.title | truncate(length=40) }} &rarr;</a>{% endif %}
+</nav>
+{% endblock %}
