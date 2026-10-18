@@ -114,7 +114,7 @@ a:hover { color: var(--accent); }
 .post > h1, .post > h2, .post > h3, .post > h4, .post > .cta {
   max-width: 72ch;
 }
-.post h1 { font-size: 1.8rem; line-height: 1.3; }
+.post h1 { font-size: 2.3rem; line-height: 1.25; }
 .post blockquote {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -144,6 +144,25 @@ a:hover { color: var(--accent); }
 .pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
 .pager .right { margin-left: auto; text-align: right; }
 
+/* AIDEV-NOTE: subscribe link-buttons (index hero, article CTA, 404).
+   Reuses card/border tokens; anchor styled as button, no JS. */
+.btn {
+  display: inline-block;
+  background: var(--card);
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.18s ease-out, background-color 0.18s ease-out;
+}
+.btn:hover { transform: translateY(-1px); color: var(--accent); border-color: var(--accent); }
+.subscribe-row { margin: 1.1rem 0 0; display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.subscribe-cta { margin-top: 0.8rem; }
+.subscribe-cta .btn { margin-left: 0.35rem; }
+.count-line { text-align: center; margin-top: 1.6rem; }
+
 .tag-list { list-style: none; padding: 0; }
 .tag-list li { margin: 0.3rem 0; }
 
@@ -168,6 +187,12 @@ footer {
   /* AIDEV-NOTE: accent green fails contrast on white — darker emerald for text */
   .tag { color: #047857; }
   ::selection { color: #fbfbf9; }
+  /* AIDEV-NOTE: light-scheme accent override — dark-theme teal #5eead4 is
+     too pale for hover/focus text on white; use teal-700 instead. */
+  :root { --accent: #0f766e; }
+  .tag { border-color: #047857; }
+  .btn { color: #047857; border-color: #047857; }
+  .btn:hover { color: #0f766e; border-color: #0f766e; }
 }
 
 /* AIDEV-NOTE: terminal-style analytics consent widget (rendered by consent.js).

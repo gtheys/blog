@@ -15,18 +15,19 @@
 
 {% block content %}
 <article class="post">
+  <h1>{{ page.title }}</h1>
   <div class="meta">
     <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
     {% if page.taxonomies.tags %} &middot; {% for tag in page.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
   </div>
   {% if page.extra.header_image %}<img class="header-img" src="{{ get_url(path=page.extra.header_image) | safe }}" alt="{{ page.title }}">{% endif %}
-  <h1>{{ page.title }}</h1>
   {{ page.content | safe }}
   <hr>
   <p class="cta">Before you copy any playbook, check how the projects in this cohort actually score on maintenance health: <a href="{{ config.extra.scorecards_url }}" target="_blank" rel="noopener">open source scorecards</a>.</p>
+  <p class="cta subscribe-cta">Enjoyed this? The same essays land in your inbox first: <a class="btn" href="{{ config.extra.subscribe_url | default(value='https://monetizeoss.substack.com/subscribe') }}" target="_blank" rel="noopener">Subscribe — two posts a week</a></p>
 </article>
 <nav class="pager">
   {% if page.lower %}<a href="{{ page.lower.permalink | safe }}">&larr; {{ page.lower.title | truncate(length=40) }}</a>{% endif %}
   {% if page.higher %}<a class="right" href="{{ page.higher.permalink | safe }}">{{ page.higher.title | truncate(length=40) }} &rarr;</a>{% endif %}
 </nav>
-{% endblock %}
+{% endblock content %}

@@ -12,6 +12,8 @@ feed_filenames = ["atom.xml"]
 
 taxonomies = [{ name = "tags", feed = true }]
 
+author = "Geert Theys"
+
 [markdown]
 highlight_code = true
 highlight_theme = "css"
@@ -21,4 +23,5 @@ smart_punctuation = true
 [extra]
 scorecards_url = "https://scorecards.monetize-oss.com/"
 main_site_url = "https://monetize-oss.com/"
+subscribe_url = "https://monetizeoss.substack.com/subscribe"
 author = "Geert Theys"

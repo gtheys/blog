@@ -4,10 +4,15 @@
 <section class="hero">
   <h1>Monetize OSS</h1>
   <p class="tagline">How to make money from open source in the age of AI. Two posts a week — essays and maintainer interviews.</p>
+  <p class="subscribe-row">
+    <a class="btn" href="{{ config.extra.subscribe_url | default(value='https://monetizeoss.substack.com/subscribe') }}" target="_blank" rel="noopener">Subscribe — two posts a week</a>
+    <span class="meta">Free, in your inbox. No spam, unsubscribe anytime.</span>
+  </p>
 </section>
 
 <section class="posts">
-  {% for post in paginator.pages %}
+  {% set posts = section.pages %}
+  {% for post in posts %}
   <article class="post-card">
     <div class="pc-text">
       <div class="meta">
@@ -15,7 +20,7 @@
         {% if post.taxonomies.tags %} &middot; {% for tag in post.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
       </div>
       <h2><a href="{{ post.permalink | safe }}">{{ post.title }}</a></h2>
-      <p class="summary">{{ post.summary | safe }}</p>
+      {% if post.description %}<p class="summary">{{ post.description }}</p>{% endif %}
       <a class="more" href="{{ post.permalink | safe }}">Read &rarr;</a>
     </div>
     {% if post.extra.header_image %}<img class="pc-thumb" src="{{ get_url(path=post.extra.header_image) | safe }}" alt="" loading="lazy">{% endif %}
@@ -23,11 +28,5 @@
   {% endfor %}
 </section>
 
-{% if paginator.total_pages > 1 %}
-<nav class="pager">
-  {% if paginator.previous %}<a href="{{ paginator.previous | safe }}">&larr; Newer</a>{% endif %}
-  <span class="meta">Page {{ paginator.current_index }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next %}<a class="right" href="{{ paginator.next | safe }}">Older &rarr;</a>{% endif %}
-</nav>
-{% endif %}
-{% endblock %}
+<p class="meta count-line">{{ section.pages | length }} post{% if section.pages | length != 1 %}s{% endif %} &middot; new essays twice a week</p>
+{% endblock content %}

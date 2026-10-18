@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}404 — {{ config.title }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>404 — page not found</h1>
+  <p class="tagline">This route returned nothing. Perhaps it was never maintained — that part of the site is now a museum exhibit.</p>
+  <p class="subscribe-row">
+    <a class="btn" href="{{ config.base_url }}/">Back to all posts &rarr;</a>
+    <span class="meta">Or grab the newsletter: <a href="{{ config.extra.subscribe_url | default(value='https://monetizeoss.substack.com/subscribe') }}" target="_blank" rel="noopener">two posts a week, free</a>.</span>
+  </p>
+</section>
+{% endblock content %}
