@@ -166,12 +166,13 @@ a:hover { color: var(--accent); }
 .tag-list { list-style: none; padding: 0; }
 .tag-list li { margin: 0.3rem 0; }
 
-footer {
+footer.site-footer {
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-align: center;
-  padding: 1.2rem 1rem 2rem;
+  margin-top: 2.5rem;
+  padding: 1.2rem 1rem 2.5rem;
 }
 
 @media (prefers-color-scheme: light) {
