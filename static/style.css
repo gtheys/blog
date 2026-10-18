@@ -108,11 +108,11 @@ a:hover { color: var(--accent); }
 }
 .more { font-size: 0.9rem; text-decoration: none; }
 
-/* AIDEV-NOTE: article prose capped at ~72ch for reading measure; media and
-   code blocks take the full widened column. */
+/* AIDEV-NOTE: article prose capped at ~90ch — widened past the 65–75ch
+   guideline per owner request to reduce whitespace next to full-width media. */
 .post > p, .post > ul, .post > ol, .post > blockquote,
 .post > h1, .post > h2, .post > h3, .post > h4, .post > .cta {
-  max-width: 72ch;
+  max-width: 90ch;
 }
 .post h1 { font-size: 2.3rem; line-height: 1.25; }
 .post blockquote {
