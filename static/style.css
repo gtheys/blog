@@ -4,10 +4,17 @@
   --muted: #8a919c;
   --accent: #5eead4;
   --accent2: #34d399;
+  --accent3: #febc2e;
   --card: #171a21;
   --border: #262b36;
   --link: #7dd3fc;
 }
+
+/* AIDEV-NOTE: browser chrome (selection, caret, scrollbar, focus) themed from
+   the palette — cheapest signal the page was designed, not assembled. */
+::selection { background: var(--accent2); color: #0f1115; }
+html { caret-color: var(--accent3); scrollbar-color: #2e3440 var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
 * { box-sizing: border-box; }
 
@@ -27,7 +34,7 @@ header {
 }
 
 nav {
-  max-width: 46rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 0.9rem 1rem;
   display: flex;
@@ -40,7 +47,7 @@ nav .links a { color: var(--muted); text-decoration: none; margin-left: 1.1rem; 
 nav .links a:hover { color: var(--accent); }
 
 main {
-  max-width: 46rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 2.5rem 1rem 3rem;
 }
@@ -57,6 +64,26 @@ a:hover { color: var(--accent); }
   border-radius: 10px;
   padding: 1.1rem 1.3rem;
   margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  transition: transform 0.18s ease-out, border-color 0.18s ease-out;
+}
+.post-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent2);
+}
+.post-card .pc-text { flex: 1; min-width: 0; }
+.post-card .pc-thumb {
+  width: 11rem;
+  aspect-ratio: 1376 / 768;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 44rem) {
+  .post-card .pc-thumb { display: none; }
 }
 
 .post-card h2 { margin: 0.25rem 0 0.5rem; font-size: 1.25rem; }
@@ -73,13 +100,20 @@ a:hover { color: var(--accent); }
 }
 .tag {
   display: inline-block;
-  border: 1px solid var(--border);
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
   border-radius: 999px;
   padding: 0 0.55rem;
   margin-left: 0.3rem;
 }
 .more { font-size: 0.9rem; text-decoration: none; }
 
+/* AIDEV-NOTE: article prose capped at ~72ch for reading measure; media and
+   code blocks take the full widened column. */
+.post > p, .post > ul, .post > ol, .post > blockquote,
+.post > h1, .post > h2, .post > h3, .post > h4, .post > .cta {
+  max-width: 72ch;
+}
 .post h1 { font-size: 1.8rem; line-height: 1.3; }
 .post blockquote {
   border-left: 3px solid var(--accent2);

@@ -9,13 +9,16 @@
 <section class="posts">
   {% for post in paginator.pages %}
   <article class="post-card">
-    <div class="meta">
-      <time datetime="{{ post.date }}">{{ post.date | date(format="%b %d, %Y") }}</time>
-      {% if post.taxonomies.tags %} &middot; {% for tag in post.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+    <div class="pc-text">
+      <div class="meta">
+        <time datetime="{{ post.date }}">{{ post.date | date(format="%b %d, %Y") }}</time>
+        {% if post.taxonomies.tags %} &middot; {% for tag in post.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
+      </div>
+      <h2><a href="{{ post.permalink | safe }}">{{ post.title }}</a></h2>
+      <p class="summary">{{ post.summary | safe }}</p>
+      <a class="more" href="{{ post.permalink | safe }}">Read &rarr;</a>
     </div>
-    <h2><a href="{{ post.permalink | safe }}">{{ post.title }}</a></h2>
-    <p class="summary">{{ post.summary | safe }}</p>
-    <a class="more" href="{{ post.permalink | safe }}">Read &rarr;</a>
+    {% if post.extra.header_image %}<img class="pc-thumb" src="{{ get_url(path=post.extra.header_image) | safe }}" alt="" loading="lazy">{% endif %}
   </article>
   {% endfor %}
 </section>
