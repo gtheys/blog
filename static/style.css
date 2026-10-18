@@ -132,3 +132,66 @@ footer {
   }
   header { background: rgba(251, 251, 249, 0.92); }
 }
+
+/* AIDEV-NOTE: terminal-style analytics consent widget (rendered by consent.js).
+   Always dark — it mimics a terminal, independent of the light/dark theme. */
+#cookie-term {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 999;
+  width: min(26rem, calc(100vw - 2rem));
+  background: #14161c;
+  border: 1px solid #262b36;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #d7dae0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+#cookie-term .ct-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.8rem;
+  background: #1b1e26;
+  border-bottom: 1px solid #262b36;
+}
+#cookie-term .ct-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; }
+#cookie-term .ct-dot.r { background: #ff5f57; }
+#cookie-term .ct-dot.y { background: #febc2e; }
+#cookie-term .ct-dot.g { background: #28c840; }
+#cookie-term .ct-title {
+  flex: 1;
+  text-align: center;
+  color: #8a919c;
+  font-size: 0.78rem;
+}
+#cookie-term .ct-body { padding: 0.9rem 1rem 1rem; }
+#cookie-term .ct-prompt { color: #34d399; font-weight: 700; }
+#cookie-term .ct-actions { margin: 0.5rem 0; }
+#cookie-term .ct-btn {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.15rem 0.5rem 0.15rem 0;
+}
+#cookie-term .ct-btn:hover,
+#cookie-term .ct-btn:focus-visible {
+  color: #5eead4;
+  outline: none;
+}
+#cookie-term .ct-key { color: #34d399; font-weight: 700; }
+#cookie-term .ct-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: #febc2e;
+  vertical-align: text-bottom;
+  animation: ct-blink 1.1s steps(1) infinite;
+}
+@keyframes ct-blink { 50% { opacity: 0; } }
