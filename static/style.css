@@ -165,6 +165,9 @@ footer {
     --link: #0369a1;
   }
   header { background: rgba(251, 251, 249, 0.92); }
+  /* AIDEV-NOTE: accent green fails contrast on white — darker emerald for text */
+  .tag { color: #047857; }
+  ::selection { color: #fbfbf9; }
 }
 
 /* AIDEV-NOTE: terminal-style analytics consent widget (rendered by consent.js).
