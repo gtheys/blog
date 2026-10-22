@@ -23,5 +23,5 @@ smart_punctuation = true
 [extra]
 scorecards_url = "https://scorecards.monetize-oss.com/"
 main_site_url = "https://monetize-oss.com/"
-subscribe_url = "https://monetizeoss.substack.com/subscribe"
+subscribe_url = "https://geerttheys.substack.com/subscribe"
 author = "Geert Theys"
