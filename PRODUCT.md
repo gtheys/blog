@@ -24,7 +24,7 @@ on top of services we host, charging for the service, not the code.
 - Reference direction (user-pinned, 2026-10): rogerio-style wide dark layout —
   wide content (~72rem), pill badges, big display type, image/screenshot-driven
   sections. Pinned brief beats concept roll.
-- Plausible analytics (self-hosted via Tailscale Funnel), consent-gated.
+- Umami analytics (self-hosted via Tailscale Funnel), consent-gated.
 
 ## Assumptions (labeled, not interviewed)
 - Landing page mode: Persuade (earn attention → blog/scorecards/interviews).

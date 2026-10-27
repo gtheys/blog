@@ -1,15 +1,16 @@
-// AIDEV-NOTE: Plausible analytics is consent-gated by the terminal-style widget
+// AIDEV-NOTE: Umami analytics is consent-gated by the terminal-style widget
 // rendered here. Choice persists in localStorage key "analytics-consent" ("yes"/"no").
-// AIDEV-NOTE: PLAUSIBLE_BASE is exposed publicly via Tailscale Funnel (:8444).
+// AIDEV-NOTE: SCRIPT_URL is exposed publicly via Tailscale Funnel (:8444).
 (function () {
-  var PLAUSIBLE_BASE = "https://chicken.tail4250d0.ts.net:8444";
+  var SCRIPT_URL = "https://chicken.tail4250d0.ts.net:8444/script.js";
+  var WEBSITE_ID = "a4df53d3-ea1c-42e4-971f-0e34564483c9";
   var KEY = "analytics-consent";
 
-  function loadPlausible() {
+  function loadAnalytics() {
     var s = document.createElement("script");
     s.defer = true;
-    s.dataset.domain = "blog.monetize-oss.com";
-    s.src = PLAUSIBLE_BASE + "/js/script.js";
+    s.src = SCRIPT_URL;
+    s.dataset.websiteId = WEBSITE_ID;
     document.head.appendChild(s);
   }
 
@@ -21,7 +22,7 @@
   }
 
   if (choice === "yes") {
-    loadPlausible();
+    loadAnalytics();
     return;
   }
   if (choice === "no") return;
@@ -32,7 +33,7 @@
     } catch (e) {
       /* storage blocked — consent applies to this page only */
     }
-    if (value === "yes") loadPlausible();
+    if (value === "yes") loadAnalytics();
     var el = document.getElementById("cookie-term");
     if (el) el.remove();
     document.removeEventListener("keydown", onKey);
@@ -54,7 +55,7 @@
     "</div>" +
     '<div class="ct-body">' +
     '<div class="ct-line"><span class="ct-prompt">&gt;</span> cookies --analytics</div>' +
-    '<div class="ct-line">I use Plausible only to count visits. OK to enable it?</div>' +
+    '<div class="ct-line">I use analytics only to count visits. OK to enable it?</div>' +
     '<div class="ct-actions">' +
     '<button class="ct-btn" data-v="yes">[<span class="ct-key">y</span>] yes</button>' +
     '<button class="ct-btn" data-v="no">[<span class="ct-key">n</span>] no</button>' +
